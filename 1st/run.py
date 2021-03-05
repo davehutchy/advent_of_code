@@ -24,8 +24,8 @@ def calculate(numbers, amount):
         if does_match(numbers, data):
             break
         data[0] +=1
+        
     result = 1
-    
     for x in range(len(data)):
         result *= numbers[data[x]]
     return result
