@@ -9,19 +9,19 @@ def increment(data):
         else:    
             data[x+1] +=1
 
-def does_match(numbers, data):
+def does_match(numbers, data, sum):
     value = 0
     for x in range(len(data)):
         value += numbers[data[x]]
-    return value == 2020
+    return value == sum
 
-def calculate(numbers, amount):
+def calculate(numbers, amount, sum):
     data = {} 
     for i in range(amount):
         data[i] = 0
     while(True):
         increment(data)
-        if does_match(numbers, data):
+        if does_match(numbers, data, sum):
             break
         data[0] +=1
         
@@ -34,5 +34,5 @@ if __name__ == "__main__":
     with open("input.txt", "r") as input:
         numbers = [int(i) for i in input.read().splitlines()]
     numbers.sort()
-    print("One: ", calculate(numbers, 2))
-    print("two: ", calculate(numbers, 3))
+    print("One: ", calculate(numbers, 2, 2020))
+    print("two: ", calculate(numbers, 3, 2020))
